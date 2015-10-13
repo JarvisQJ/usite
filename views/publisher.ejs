@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml-transitional.dtd">
+<html>
+         <head>
+           <title><%= title %></title>
+		   		 <script type="text/javascript" src="/javascripts/assets/swfobject.js"></script>
+		  </head>
+		  
+	<style type="text/css" media="screen">
+  			html, body, #containerA, #containerB { height:100%; }
+  			body { margin:0; padding:0; overflow:hidden; }
+	</style>
+	<script type="text/javascript">
+	
+	//document.body.onload = function(){
+		var flashvars = {};
+		var params = {allowfullscreen: "false"};
+		var attributes = {};
+		swfobject.embedSWF("/javascripts/assets/publisher.swf", "myflash", "100%", "100%", "9.0.0", "/javascripts/assets/expressInstall.swf", flashvars, params, attributes);
+		//document.getElementById('myflash').style.top="200px";
+		
+		document.getElementById('flash_container').style.top="200px";
+		document.getElementById('flash_container').style.height="800px";
+	//};
+
+
+	</script>
+     <body>
+<div id="flash_container" style="800px;">
+	<div id="myflash" style="height:800px">
+		<h1>您需要flash插件才可以进行视频录制，请点击下载</h1>
+		<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash player" /></a></p>
+	</div>
+</div>
+	<script type="text/javascript">
+		document.getElementById('flash_container').style.height="800px";
+	</script>
+	</body>
+</html>

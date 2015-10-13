@@ -1,0 +1,11 @@
+
+<div id="myflash" style="height:400px">
+	<h1>您需要flash插件才可以进行视频录制，请点击下载</h1>
+	<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash player" /></a></p>
+</div>
+<script>
+	window.onresize = function(){  
+        $('#myflash').height(800);
+	}
+    $(window).resize();
+</script>

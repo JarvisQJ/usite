@@ -1,0 +1,30 @@
+[2015-09-21 17:38:26.679] [TRACE] logger - trace log
+[2015-09-21 17:38:26.680] [DEBUG] logger - debug log
+[2015-09-21 17:38:26.681] [INFO] logger - info log
+[2015-09-21 17:38:26.681] [WARN] logger - warn log
+[2015-09-21 17:38:26.682] [ERROR] logger - error log
+[2015-09-21 17:38:26.682] [FATAL] logger - fatal log
+[2015-09-21 17:39:15.538] [TRACE] logger - trace log
+[2015-09-21 17:39:15.539] [DEBUG] logger - debug log
+[2015-09-21 17:39:15.540] [INFO] logger - info log
+[2015-09-21 17:39:15.540] [WARN] logger - warn log
+[2015-09-21 17:39:15.541] [ERROR] logger - error log
+[2015-09-21 17:39:15.541] [FATAL] logger - fatal log
+[2015-09-21 17:39:27.216] [INFO] logger - 进入首页
+[2015-09-21 17:41:09.116] [INFO] logger - 进入首页
+[2015-09-21 17:41:09.804] [INFO] logger - 进入首页
+[2015-09-21 17:44:05.836] [TRACE] logger - trace log
+[2015-09-21 17:44:05.837] [DEBUG] logger - debug log
+[2015-09-21 17:44:05.838] [INFO] logger - info log
+[2015-09-21 17:44:05.838] [WARN] logger - warn log
+[2015-09-21 17:44:05.838] [ERROR] logger - error log
+[2015-09-21 17:44:05.839] [FATAL] logger - fatal log
+[2015-09-21 17:49:14.560] [INFO] logger - 进入首页
+[2015-09-21 17:50:17.375] [INFO] logger - 进入首页
+[2015-09-21 17:50:17.415] [INFO] logger - 进入首页
+[2015-09-21 17:51:56.462] [INFO] logger - 进入首页
+[2015-09-21 17:52:11.882] [INFO] logger - 进入首页
+[2015-09-21 18:00:11.313] [INFO] logger - 进入首页
+[2015-09-21 18:02:59.966] [INFO] logger - 进入首页
+[2015-09-21 18:02:59.992] [INFO] logger - 进入首页
+[2015-09-21 18:05:04.821] [INFO] logger - 登录成功

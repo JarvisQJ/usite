@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>知人直播</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../stylesheets/master.css">
+	<link rel="stylesheet" href="../stylesheets/xiniu.css">
+	<script src="../javascripts/jquery.js" type="text/javascript"></script>
+	<script src="../javascripts/jquery-1.8.3.js" type="text/javascript"></script>	
+	<script type="text/javascript" src="../javascripts/jay.plugin.smoothscroll.js"></script>
+	<script>	
+	$(function(){	
+			var $control = $('#userbox_tabs>li');
+			var $img = $('#userbox_login>li');
+						
+			$control.click(function(){
+				var $th = $(this);
+				var $n = $th.index();
+				$control.removeClass();
+				$th.addClass('usertab-current');
+				$img.css('display','none');
+				$img.eq($n).css('display','block');
+			})		
+	});	
+	</script>
+	<script>
+		function close(){
+			$("#userbox").css("display","none");
+			$("#mask").css("display","none");
+		}
+		function openLogin(){
+			$("#userbox").css("display","block");
+			$("#mask").css("display","block");
+			$("#userbox_tabs>li").removeClass();
+			$("#gologin").addClass("usertab-current");
+			$("#userbox_login>li:first-child").css("display","block");
+			$("#userbox_login>li:last-child").css("display","none");
+
+		}
+		function openReg(){
+			$("#userbox").css("display","block");
+			$("#mask").css("display","block");
+			$("#userbox_tabs>li").removeClass();
+			$("#goreg").addClass("usertab-current");
+			$("#userbox_login>li:first-child").css("display","none");
+			$("#userbox_login>li:last-child").css("display","block");
+
+		}
+	</script>
+
+</head>
+<body>
+<div class="userbox" id="userbox" style="display: none;">
+	<ul id="userbox_tabs">
+		<li class="usertab-current" id="gologin">登录</li>
+		<li id="goreg">注册</li>	
+		<div class="close" id="close_userbox">
+			<a href="javascript:close()">
+				<img src="./images/close.png" alt="" >
+			</a>
+		</div>	
+	</ul>
+	<ul id="userbox_login">
+		<li><!-- 登录页 -->
+			<div class="userbox-inputbox">
+				<form action="/login"class="form-horizontal" method="post">
+					<input type="text" name="username" id="username" placeholder="手机号码" class="input-default">
+					<div id="login_msg"></div>
+					<input type="password" name="password" id="password" placeholder="密码" class="input-default">
+					<div id="code" class="oh">
+						<input type="text" name="" placeholder="输入验证码" class="fl input-code">
+						<div class="code-img" class="fl">
+							<img src="./images/code.jpg" alt="">
+							<div class="code-refresh fl">
+							</div>
+						</div>
+					</div>
+					<div class="checkbox oh">
+						<input type="checkbox" class="fl">
+						<p class="fl">记住密码</p>
+					</div>
+					<button type="submit" class="btn-login btn-default">登  录</button>
+					<p class="tip">没有账号？<a href="javascript:openReg()">马上注册</a></p>
+				</form>
+			</div>
+		</li>
+		<li style="display: none;padding-bottom: 40px;"><!-- 注册页 -->
+			<div class="userbox-inputbox">
+
+				<form action="/reg" class="form-horizontal" method="post"  id="form1">
+					<input type="text" id="username" name="username" placeholder="手机号码" class="input-default">
+					<div class="oh">
+						<input type="text" name="" placeholder="输入验证码" class="fl input-code">
+						<div class="code-img" class="fl">
+							<img src="./images/code.jpg" alt="">
+							<div class="code-refresh fl">
+							</div>
+						</div>
+					</div>
+					<div class="oh">
+						<input type="text" placeholder="输入短信验证码" class="fl input-code" style="width: 120px;">
+						<button class="fl btn-getcode">获取短信验证码</button>
+					</div>
+					<div id="pnBefore" class="t_zc_tc_a_tizhuce_a">
+				    <div class="t_zc_tc_a_tizhuce_bg">
+				      <div class="ywz_zhuce_bao" style="height: 58px; padding: 22px 0 0 0 !important;
+				                border-right: none !important; margin-bottom: 0px;">
+				        <div class="t_ywz_fuzai_yi"></div>
+				        <div class="t_ywz_fuzai_yi"></div>
+				        <div class="ywz_zhucexiaobo">
+				          <div class="ywz_zhuce_xiaoxiaobao">
+				            <div class="ywz_zhuce_kuangzi">
+				              <input name="passwordReg" type="password" id="passwordReg" placeholder="设置密码" class=" input-default" style="margin-top: 0;">
+				            </div>
+				            <div class="ywz_zhuce_huixian" id='pwdLevel_1'> </div>
+				            <div class="ywz_zhuce_huixian" id='pwdLevel_2'> </div>
+				            <div class="ywz_zhuce_huixian" id='pwdLevel_3'> </div>
+				            <div class="ywz_zhuce_hongxianwenzi"> 弱</div>
+				            <div class="ywz_zhuce_hongxianwenzi"> 中</div>
+				            <div class="ywz_zhuce_hongxianwenzi"> 强</div>
+				          </div>				         
+				      </div>
+				    </div>
+				  </div>
+				  </div>
+					<input type="password" id="passwordReg-repeat" name="passwordReg-repeat" placeholder="确认密码" class="input-default">
+
+					<button type="submit" class="btn-reg btn-default">注册</button>
+					<p class="tip">已有账号？<a href="javascript:openLogin()">马上登录</a></p>
+
+				</form>
+
+			</div>
+		</li>  
+	</ul>
+</div>
+<div class="mask" style="display: none;" id="mask"></div>
+<div class="header">
+	<div class="container oh">
+		<div class="logo fl">			
+			<a href="">
+				<img src="./images/1_03.png" alt="">
+			</a>
+		</div>
+		<div class="user fr oh">			
+			<div class="login fl" onclick="openLogin()">				
+				登录				
+			</div>			
+			<div class="reg fl" onclick="openReg()">				
+				注册
+			</div>
+			
+		</div>
+	</div>
+</div>
+<div class="banner">
+	<div class="banner-content">
+		<a href="" class="btn-start">
+			<div class="start"></div>
+		</a>
+	</div>
+</div>
+<div class="live container">
+	<div class="title oh">
+		<div class="title01 fl">
+			<h4>正在直播</h4>
+		</div>
+		<div class="title02 fl">
+			<a href=""><p>更多>></p></a>
+		</div>
+	</div>
+	<div class="column">
+		<a href="">
+			<div class="showbox">	
+				<div class="showimg">			
+					<img src="./images/show01.jpg" alt="">
+				</div>
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="column">
+		<a href="">	
+			<div class="showbox">
+				<div class="showimg">
+					<img src="./images/show02.jpg" alt="">
+				</div>
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="column">	
+		<a href="">
+			<div class="showbox">
+				<img src="./images/show03.jpg" alt="">
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>	
+</div>
+<div class="review container">
+	<div class="title oh">
+		<div class="title01 fl">
+			<h4>精彩回放</h4>
+		</div>
+		<div class="title02 fl">
+			<a href=""><p>更多>></p></a>
+		</div>
+	</div>
+	<div class="column">
+		<a href="">
+			<div class="showbox">	
+				<div class="showimg">			
+					<img src="./images/show01.jpg" alt="">
+				</div>
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="column">
+		<a href="">	
+			<div class="showbox">
+				<div class="showimg">
+					<img src="./images/show02.jpg" alt="">
+				</div>
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="column">	
+		<a href="">
+			<div class="showbox">
+				<img src="./images/show03.jpg" alt="">
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>	
+</div>
+<div class="trailer container">
+	<div class="title oh">
+		<div class="title01 fl">
+			<h4>精彩预告</h4>
+		</div>
+		<div class="title02 fl">
+			<a href=""><p>更多>></p></a>
+		</div>
+	</div>
+	<div class="column">
+		<a href="">
+			<div class="showbox">	
+				<div class="showimg">			
+					<img src="./images/show01.jpg" alt="">
+				</div>
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="column">
+		<a href="">	
+			<div class="showbox">
+				<div class="showimg">
+					<img src="./images/show02.jpg" alt="">
+				</div>
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="column">	
+		<a href="">
+			<div class="showbox">
+				<img src="./images/show03.jpg" alt="">
+				<div class="showcon">
+					<h4>互联网金融生态中国行</h4>
+					<div class="oh">
+						<div class="fl oh name">
+							<img src="./images/user_23.png" alt="" class="fl">
+							<p class="fl">默默</p>
+						</div>
+						<div class="fl oh num">
+							<img src="./images/user_21.png" alt="" class="fl">
+							<p class="fl">1,230</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>	
+</div>
+<div id="footer">
+	<div class="container">
+		<div class="links">
+		<a href="">关于我们</a> | <a href="">功能介绍</a> | <a href="">团队介绍</a> | <a href="">隐私条款</a> | <a href="">版权声明</a> | <a href="">人才招聘</a> | <a href="">常见问题</a> | <a href="">服务热线</a>
+		</div>
+	</div>
+	<div class="container">
+		<div class="copyright ta">
+		Copyright © 2015 - 2020 zhi-ren.cn All rights reserved		
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+        $('#passwordReg').focus(function () {
+            $('#pwdLevel_1').attr('class', 'ywz_zhuce_hongxian');
+            $('#passwordReg').keyup();
+        });
+
+        $('#passwordReg').keyup(function () {
+            var __th = $(this);
+
+            if (!__th.val()) {
+                $('#pwd_tip').hide();
+                $('#pwd_err').show();
+                Primary();
+                return;
+            }
+            if (__th.val().length < 6) {
+                $('#pwd_tip').hide();
+                $('#pwd_err').show();
+                Weak();
+                return;
+            }
+            var _r = checkPassword(__th);
+            if (_r < 1) {
+                $('#pwd_tip').hide();
+                $('#pwd_err').show();
+                Primary();
+                return;
+            }
+
+            if (_r > 0 && _r < 2) {
+                Weak();
+            } else if (_r >= 2 && _r < 4) {
+                Medium();
+            } else if (_r >= 4) {
+                Tough();
+            }
+
+            $('#pwd_tip').hide();
+            $('#pwd_err').hide();
+        });     
+
+        function Primary() {
+            $('#pwdLevel_1').attr('class', 'ywz_zhuce_huixian');
+            $('#pwdLevel_2').attr('class', 'ywz_zhuce_huixian');
+            $('#pwdLevel_3').attr('class', 'ywz_zhuce_huixian');
+        }
+
+        function Weak() {
+            $('#pwdLevel_1').attr('class', 'ywz_zhuce_hongxian');
+            $('#pwdLevel_2').attr('class', 'ywz_zhuce_huixian');
+            $('#pwdLevel_3').attr('class', 'ywz_zhuce_huixian');
+        }
+
+        function Medium() {
+            $('#pwdLevel_1').attr('class', 'ywz_zhuce_hongxian');
+            $('#pwdLevel_2').attr('class', 'ywz_zhuce_hongxian2');
+            $('#pwdLevel_3').attr('class', 'ywz_zhuce_huixian');
+        }
+
+        function Tough() {
+            $('#pwdLevel_1').attr('class', 'ywz_zhuce_hongxian');
+            $('#pwdLevel_2').attr('class', 'ywz_zhuce_hongxian2');
+            $('#pwdLevel_3').attr('class', 'ywz_zhuce_hongxian3');
+        }
+        function checkPassword(pwdinput) {
+            var maths, smalls, bigs, corps, cat, num;
+            var str = $(pwdinput).val()
+            var len = str.length;
+
+            var cat = /.{16}/g
+            if (len == 0) return 1;
+            if (len > 16) { $(pwdinput).val(str.match(cat)[0]); }
+            cat = /.*[\u4e00-\u9fa5]+.*$/
+            if (cat.test(str)) {
+                return -1;
+            }
+            cat = /\d/;
+            var maths = cat.test(str);
+            cat = /[a-z]/;
+            var smalls = cat.test(str);
+            cat = /[A-Z]/;
+            var bigs = cat.test(str);
+            var corps = corpses(pwdinput);
+            var num = maths + smalls + bigs + corps;
+
+            if (len < 6) { return 1; }
+
+            if (len >= 6 && len <= 8) {
+                if (num == 1) return 1;
+                if (num == 2 || num == 3) return 2;
+                if (num == 4) return 3;
+            }
+
+            if (len > 8 && len <= 11) {
+                if (num == 1) return 2;
+                if (num == 2) return 3;
+                if (num == 3) return 4;
+                if (num == 4) return 5;
+            }
+
+            if (len > 11) {
+                if (num == 1) return 3;
+                if (num == 2) return 4;
+                if (num > 2) return 5;
+            }
+        }
+
+        function corpses(pwdinput) {
+            var cat = /./g
+            var str = $(pwdinput).val();
+            var sz = str.match(cat)
+            for (var i = 0; i < sz.length; i++) {
+                cat = /\d/;
+                maths_01 = cat.test(sz[i]);
+                cat = /[a-z]/;
+                smalls_01 = cat.test(sz[i]);
+                cat = /[A-Z]/;
+                bigs_01 = cat.test(sz[i]);
+                if (!maths_01 && !smalls_01 && !bigs_01) { return true; }
+            }
+            return false;
+        }
+    </script>
+    <script>
+    	window.onresize=boxcenter;
+    	function boxcenter(){
+    		var y = $(window).width();
+    		var left = y/2-173;
+    		$("#userbox").css("left",left+"px");
+    	}
+    	boxcenter();
+
+    </script>
+</form>
+</body>
+</html>

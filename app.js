@@ -127,7 +127,7 @@ app.post('/login/cell', routes.doLoginCell);
 
 app.get('/logout',routes.logout);//用户退出
 
-app.get('/publisher', routes.publish);//发布视频
+app.get('/publish', routes.publish);//发布视频
 
 app.get('/channel', routes.channel);//频道中设置
 app.get('/channel_ph', routes.channel_ph);//频道中设置
